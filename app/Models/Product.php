@@ -19,12 +19,12 @@ class Product extends Model
         'disk',
         'price',
         'price_string',
-        'product_category_id'
+        'category_id'
     ];
 
     public function productCategory(): BelongsTo
     {
-        return $this->belongsTo(ProductCategory::class, 'product_category_id', 'id');
+        return $this->belongsTo(ProductCategory::class, 'category_id', 'id');
     }
 
     public function productLoanItem(): HasMany
