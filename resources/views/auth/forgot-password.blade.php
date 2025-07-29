@@ -1,6 +1,6 @@
 <x-guest-layout>
     <div class="mb-4 text-sm text-gray-600">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+        {{ __('Esqueceu sua senha? Sem problemas. Basta informar o seu endereço de e-mail cadastrado que nós enviaremos um link para que você redefinir a sua senha.') }}
     </div>
 
     <!-- Session Status -->
@@ -11,15 +11,21 @@
 
         <!-- Email Address -->
         <div>
-            <x-input-label for="email" :value="__('Email')" />
+            <x-input-label for="email" :value="__('Email cadastrado')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
+        <div class="flex items-center justify-center mt-4">
             <x-primary-button>
-                {{ __('Email Password Reset Link') }}
+                {{ __('Redefinir senha') }}
             </x-primary-button>
+        </div>
+
+        <div class="flex items-center justify-center mt-4">
+            <a class="hover:underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
+                {{ __('Retornar para login') }}
+            </a>
         </div>
     </form>
 </x-guest-layout>
