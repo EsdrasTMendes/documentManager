@@ -32,13 +32,13 @@
             </label>
         </div>
 
-        <div class="flex sm:justify-center mt-4 mb-6">
+        <div class="flex justify-center mt-4 mb-6">
             <x-primary-button class="ms-3">
                 {{ __('Entrar') }}
             </x-primary-button>
         </div>
 
-        <div class="flex sm:justify-between mt-4 space-x-20">
+        <div class="flex justify-between mt-4 space-x-20">
             <a class="text-sm text-gray-600 hover:text-gray-900 hover:underline rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('register') }}">
                 {{ __('Cadastre-se') }}
             </a>
