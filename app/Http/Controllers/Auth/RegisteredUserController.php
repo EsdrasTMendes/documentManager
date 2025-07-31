@@ -29,22 +29,32 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+        try {
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:users'],
+                'cpf' => ['required', 'string', 'max:14', 'unique:users'],
+                'phone_number' => ['required', 'string', 'max:255', 'unique:users'],
+                'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
 
-        event(new Registered($user));
 
-        Auth::login($user);
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'role' => 'user',
+                'cpf' => $request->cpf,
+                'phone_number' => $request->phone_number,
+                'password' => Hash::make($request->password),
+            ]);
 
-        return redirect(route('dashboard', absolute: false));
+            event(new Registered($user));
+            Auth::login($user);
+            return redirect(route('dashboard', absolute: false));
+        } catch (\Exception $exception) {
+            Log::error("Erro no fluxo de cadastro: " . $exception->getMessage());
+            return back()->withErrors($exception->getMessage());
+        }
     }
 }

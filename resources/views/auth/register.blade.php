@@ -18,16 +18,16 @@
 
         <!-- PhoneNumber -->
         <div class="mt-4">
-            <x-input-label for="phoneNumber" :value="__('Telefone')" />
-            <x-text-input id="phoneNumber" class="block mt-1 w-full" type="tel" name="phoneNumber" :value="old('phoneNumber')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('phoneNumber')" class="mt-2" />
+            <x-input-label for="phone_number" :value="__('Telefone')" />
+            <x-text-input id="phone_number" class="block mt-1 w-full" type="tel" name="phone_number" :value="old('phone_number')" required autocomplete="username" />
+            <x-input-error :messages="$errors->get('phone_number')" class="mt-2" />
         </div>
 
         <!-- CPF aplicar máscara depois -->
         <div class="mt-4">
-            <x-input-label for="CPF" :value="__('CPF')" />
-            <x-text-input id="CPF" class="block mt-1 w-full" type="tel" name="CPF" :value="old('CPF')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('CPF')" class="mt-2" />
+            <x-input-label for="cpf" :value="__('CPF')" />
+            <x-text-input id="cpf" class="block mt-1 w-full" type="tel" name="cpf" :value="old('cpf')" required autocomplete="username" />
+            <x-input-error :messages="$errors->get('cpf')" class="mt-2" />
         </div>
 
         <!-- Password -->
