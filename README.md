@@ -1,61 +1,60 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sistema de Gerenciamento de Documentos e Empréstimos
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este projeto é um sistema de gerenciamento de documentos desenvolvido com Laravel, focado no controle de empréstimo de equipamentos. O objetivo é permitir que usuários cadastrem, visualizem e gerenciem documentos de forma segura e organizada, seguindo os requisitos do desafio técnico.
 
-## About Laravel
+## Requisitos do Projeto
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Requisitos Obrigatórios
+- [ ] Cadastro e autenticação de usuário (login/logout).
+- [ ] Visualizar, adicionar, editar, baixar e remover documentos.
+- [ ] Um usuário pode cadastrar vários documentos, mas não pode visualizar nem realizar o download de documentos de outros usuários.
+- [ ] Ao baixar um documento, o sistema deve gerar uma cópia do `Anexo1.docx` preenchida com os dados do empréstimo.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Requisitos Diferenciais
+- [ ] Utilização do Laravel Sail para o projeto.
+- [ ] Opção de download dos documentos em formato PDF ou DOCX.
+- [ ] Adicionar uma tabela de acessórios e periféricos no `Anexo1.docx`.
+- [ ] Criar filtros de pesquisa nos documentos por nome, função e CPF.
+- [ ] Fluxo de criação de produtos através do upload de nota fiscal.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🚀 To-Do List do Projeto
 
-## Learning Laravel
+Use esta lista para acompanhar o andamento das tarefas. Marque-as com `[x]` para indicar que foram concluídas.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 📝 Etapa 1: Fluxo de Empréstimo de Produtos
+- [x] **1.1 - Ajustes e Padronização do Código:**
+    - [x] Corrigir a variável `$loans` no `ProductLoanController` para `$productLoans`.
+    - [x] Padronizar as views `index.blade.php` e `show.blade.php` com Tailwind CSS.
+    - [x] Corrigir as rotas na `index.blade.php` para usarem `product_loans` (com underline).
+- [ ] **1.2 - Adição de Itens ao Empréstimo:**
+    - [ ] Modificar a view `create.blade.php` para consumir a lista de produtos do banco de dados.
+    - [ ] Atualizar o método `store` no `ProductLoanController` para salvar os itens de empréstimo (`ProductLoanItem`).
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 📄 Etapa 2: Geração e Download de Documentos
+- [ ] **2.1 - Configuração de Bibliotecas e Template:**
+    - [ ] Instalar as bibliotecas `phpword` e `dompdf`.
+    - [ ] Criar o template `Anexo1.docx` com os placeholders.
+- [ ] **2.2 - Lógica de Geração:**
+    - [ ] Implementar a lógica de preenchimento e salvamento dos arquivos `.docx` e `.pdf` no `ProductLoanController@store`.
+- [ ] **2.3 - Funcionalidade de Download:**
+    - [ ] Implementar o método `download` no `DocumentController` com verificação de permissão.
+    - [ ] Adicionar os botões de download na view `show.blade.php` do empréstimo.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 🔍 Etapa 3: Melhorias e Requisitos Diferenciais
+- [ ] **3.1 - Filtros de Pesquisa:**
+    - [ ] Implementar a lógica de filtro por nome, função e CPF no `DocumentController`.
+    - [ ] Ajustar a view `dashboardapp.blade.php` para exibir os documentos filtrados.
+- [ ] **3.2 - Exibição Detalhada dos Itens:**
+    - [ ] Garantir que a view `show.blade.php` exiba a lista de itens do empréstimo.
+- [ ] **3.3 - Outros Requisitos:**
+    - [ ] Considerar a criação de um fluxo de cadastro de categorias, se houver tempo.
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 📦 Etapa 4: Fluxo de Criação de Produtos via Nota Fiscal
+- [x] **4.1 - Definição do Formulário e Lógica da View:**
+    - [x] Criar o `ProductController`.
+    - [x] Criar o formulário `products/create.blade.php` para o cadastro.
+- [x] **4.2 - Lógica de Salvamento no `ProductController`:**
+    - [x] Criar a model e a migration para `Invoice`.
+    - [x] Adicionar o campo `invoice_number` no formulário de criação.
+    - [x] Implementar a lógica de validação e salvamento do produto e da nota fiscal no `ProductController@store`.
+    - [x] Criar um botão no `dashboardapp.blade.php` para acessar este fluxo.

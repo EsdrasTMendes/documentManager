@@ -19,7 +19,8 @@ class Product extends Model
         'disk',
         'price',
         'price_string',
-        'category_id'
+        'category_id',
+        'fl_available',
     ];
 
     public function productCategory(): BelongsTo

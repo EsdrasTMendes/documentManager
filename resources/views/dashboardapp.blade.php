@@ -4,9 +4,14 @@
     <div class="container mx-auto px-4 py-6">
         <h1 class="text-2xl font-bold mb-4">Olá, {{ auth()->user()->name }}</h1>
 
-        <div class="mb-6">
-            <a href="{{ route('documents.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-                Novo Documento
+        <div class="mb-6 flex gap-4 flex-wrap">
+            <a href="{{ route('product_loans.index') }}" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                Meus Empréstimos
+            </a>
+
+            {{-- NOVO BOTÃO: Cadastro de Produtos --}}
+            <a href="{{ route('products.create') }}" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">
+                Cadastrar Produto
             </a>
         </div>
 

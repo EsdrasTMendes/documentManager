@@ -10,9 +10,9 @@ class Document extends Model
     protected $table = 'documents';
 
     protected $fillable = [
-        'user_id',
+        'user_id',         //FK
         'product_loan_id', // FK
-        'file_path_docx', // FK
+        'file_path_docx',
         'file_path_pdf',
         'created_at',
     ];
