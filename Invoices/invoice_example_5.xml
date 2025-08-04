@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<invoice>
+    <number>NF-15557213-028</number>
+    <product>
+        <category>Tablet</category>
+        <brand>Samsung</brand>
+        <model>Tab s155</model>
+        <serial_number>Saamsung-Tab-S125</serial_number>
+        <hardware>
+            <processor>Octaa-Core Qualcomm Snapdragon Max</processor>
+            <memory>64</memory>
+            <disk>512</disk>
+        </hardware>
+        <price>
+            <value>7898.00</value>
+            <string>sete mil e oitocentos e noventa e oito reais</string>
+        </price>
+    </product>
+</invoice>

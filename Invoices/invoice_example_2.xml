@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<invoice>
+    <number>NF-20254781-002</number>
+    <product>
+        <category>Notebook</category>
+        <brand>Lenovo</brand>
+        <model>Ideapad</model>
+        <serial_number>Lenovo-Ideapad-123456</serial_number>
+        <hardware>
+            <processor>Intel Core i7</processor>
+            <memory>32</memory>
+            <disk>1028</disk>
+        </hardware>
+        <price>
+            <value>4750.00</value>
+            <string>quatro mil e setecentos e cinquenta reais</string>
+        </price>
+    </product>
+</invoice>

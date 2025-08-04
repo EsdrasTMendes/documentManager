@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<invoice>
+    <number>NF-20250803-001</number>
+    <product>
+        <category>Notebook</category>
+        <brand>Dell</brand>
+        <model>Inspiron 15</model>
+        <serial_number>DELL-INSPIRON-12345</serial_number>
+        <hardware>
+            <processor>Intel Core i7</processor>
+            <memory>16</memory>
+            <disk>512</disk>
+        </hardware>
+        <price>
+            <value>4500.00</value>
+            <string>quatro mil e quinhentos reais</string>
+        </price>
+    </product>
+</invoice>
