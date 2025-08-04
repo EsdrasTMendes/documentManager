@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<invoice>
+    <number>NF-20250803-002</number>
+    <product>
+        <category>Tablet</category>
+        <brand>Samsung</brand>
+        <model>Tab s9</model>
+        <serial_number>Samsung-Tab-S9</serial_number>
+        <hardware>
+            <processor>Octa-Core Qualcomm Snapdragon</processor>
+            <memory>32</memory>
+            <disk>256</disk>
+        </hardware>
+        <price>
+            <value>3999.00</value>
+            <string>trezentos e noventa e nove reais/string>
+        </price>
+    </product>
+</invoice>
