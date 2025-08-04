@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<invoice>
+    <number>NF-20250913-028</number>
+    <product>
+        <category>Tablet</category>
+        <brand>Samsung</brand>
+        <model>Tab s15</model>
+        <serial_number>Samsung-Tab-S15</serial_number>
+        <hardware>
+            <processor>Octa-Core Qualcomm Snapdragon Max</processor>
+            <memory>64</memory>
+            <disk>512</disk>
+        </hardware>
+        <price>
+            <value>6899.00</value>
+            <string>seis mil e oitocentos e noventa e nove reais</string>
+        </price>
+    </product>
+</invoice>
