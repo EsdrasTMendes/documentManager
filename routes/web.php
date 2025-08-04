@@ -1,29 +1,32 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\ProductLoanController;
 use App\Http\Controllers\ProductController;
 
-
 Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/dashboard', [DocumentController::class, 'index'])
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', [DocumentController::class, 'index'])->name('dashboard');
 
-Route::middleware(['auth'])->group(function () {
-    Route::resource('documents', DocumentController::class);
-    Route::get('documents/{document}/download/{type}', [DocumentController::class, 'download'])->name('documents.download');
+
+    Route::get('/documents/{id}/download/{type}', [DocumentController::class, 'download'])->name('documents.download');
+    Route::get('/documents/{id}/edit', [DocumentController::class, 'edit'])->name('documents.edit');
+    Route::put('/documents/{id}/update', [DocumentController::class, 'update'])->name('documents.update');
+    Route::delete('/documents/{id}', [DocumentController::class, 'destroy'])->name('documents.destroy');
+
+
+    Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+    Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+
+
+
+    Route::get('/product_loans', [ProductLoanController::class, 'index'])->name('product_loans.index');
+    Route::get('/product_loans/{productLoan}', [ProductLoanController::class, 'show'])->name('product_loans.show');
 });
 
-Route::middleware(['auth'])->group(function () {
-    Route::resource('product_loans', ProductLoanController::class)->except(['edit', 'update']);
-});
-
-Route::middleware(['auth'])->group(function () {
-    Route::resource('products', ProductController::class)->only(['create', 'store']);
-});
 
 require __DIR__.'/auth.php';

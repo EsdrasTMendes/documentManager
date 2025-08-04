@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Product extends Model
 {
@@ -19,18 +20,18 @@ class Product extends Model
         'disk',
         'price',
         'price_string',
-        'category_id',
+        'category',
         'fl_available',
     ];
-
-    public function productCategory(): BelongsTo
-    {
-        return $this->belongsTo(ProductCategory::class, 'category_id', 'id');
-    }
 
     public function productLoanItem(): HasMany
     {
         return $this->hasMany(ProductLoanItem::class, 'product_id', 'id');
+    }
+
+    public function invoice(): HasOne
+    {
+        return $this->hasOne(Invoice::class, 'product_id', 'id');
     }
 
 }

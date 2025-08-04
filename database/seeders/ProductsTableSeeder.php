@@ -14,9 +14,6 @@ class ProductsTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $notebookCategory = ProductCategory::where('name', 'Notebook')->first();
-        $perifericoCategory = ProductCategory::where('name', 'Periferico')->first();
-
         Product::create([
             'brand' => 'Dell',
             'model' => 'Inspiron 15',
@@ -26,7 +23,7 @@ class ProductsTableSeeder extends Seeder
             'disk' => '512GB SSD',
             'price' => 4500.00,
             'price_string' => 'quatro mil e quinhentos reais',
-            'category_id' => $notebookCategory->id,
+            "category" => "Acessorios"
         ]);
 
         Product::create([
@@ -35,7 +32,7 @@ class ProductsTableSeeder extends Seeder
             'serial_number' => 'LG1254782',
             'price' => 559.00,
             'price_string' => 'quinhentos e cinquenta e nove reais',
-            'category_id' => $perifericoCategory->id,
+            "category" => "Acessorios"
         ]);
 
         Product::create([
@@ -44,7 +41,7 @@ class ProductsTableSeeder extends Seeder
             'serial_number' => 'MK2351234',
             'price' => 132.00,
             'price_string' => 'cento e trinta e dois reais',
-            'category_id' => $perifericoCategory->id,
+            "category" => "Acessorios"
         ]);
     }
 }

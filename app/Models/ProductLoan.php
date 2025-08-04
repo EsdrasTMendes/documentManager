@@ -29,4 +29,11 @@ class ProductLoan extends Model
         return $this->hasMany(ProductLoanItem::class, 'product_loan_id', 'id');
     }
 
+    /**
+     * Define a relação com os documentos de empréstimo.
+     */
+    public function documents(): HasMany
+    {
+        return $this->hasMany(Document::class, 'product_loan_id', 'id');
+    }
 }

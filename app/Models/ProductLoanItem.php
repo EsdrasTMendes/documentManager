@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class ProductLoanItem extends Model
 {
     protected $table = 'product_loan_items';
-
+    public $timestamps = false;
     protected $fillable =
         [
             'product_loan_id', //FK

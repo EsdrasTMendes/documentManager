@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('disk')->nullable();
             $table->decimal('price', 10, 2);
             $table->string('price_string');
-            $table->foreignId('category_id')->constrained('product_categories')->cascadeOnDelete();
+            $table->string('category');
             $table->boolean('fl_available')->default(1);
             $table->timestamps();
         });
